@@ -1,0 +1,10 @@
+<section class="summary">
+  <div class="row">
+    <div class="col">
+      <h2>Results</h2>
+      <p *ngIf="property">
+        In <strong>{{ property.mortgageLength }}</strong> years the property will be worth around <strong>&pound;{{ property.futureValue }}</strong> assuming <strong>{{ property.expectedAnnualIncrease }}%</strong> annual growth.
+      </p>
+    </div>
+  </div>
+</section>

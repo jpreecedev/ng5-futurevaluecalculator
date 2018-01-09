@@ -1,14 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment'; // Angular CLI environemnt
 
 import { AppComponent } from './app.component';
+import { BasicDetailsComponent } from './basic-details/basic-details.component';
+import { FutureValueCalculatorComponent } from './future-value-calculator/future-value-calculator.component';
+import { SummaryComponent } from './summary/summary.component';
+import { TextFieldComponent } from './text-field/text-field.component';
+
+import * as reducers from './reducers/reducers';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BasicDetailsComponent,
+    FutureValueCalculatorComponent,
+    SummaryComponent,
+    TextFieldComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot(reducers),
+    !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 25 }) : []
   ],
   providers: [],
   bootstrap: [AppComponent]
