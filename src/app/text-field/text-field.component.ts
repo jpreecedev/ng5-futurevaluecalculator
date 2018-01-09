@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Input, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-text-field',
-  templateUrl: './text-field.component.html',
-  styleUrls: ['./text-field.component.scss']
+  templateUrl: './text-field.component.html'
 })
-export class TextFieldComponent implements OnInit {
+export class TextFieldComponent {
 
-  constructor() { }
+  @Input() id: string;
+  @Input() prefix: string;
+  @Input() inputValue: string;
+  @Input() suffix: string;
+  @Input() type: string;
+  @Input() label: string;
 
-  ngOnInit() {
+  @Output() changed = new EventEmitter();
+
+  onInput(value: string) {
+    this.changed.emit(value);
   }
 
 }

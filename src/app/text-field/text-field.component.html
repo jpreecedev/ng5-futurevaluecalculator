@@ -1,3 +1,21 @@
-<p>
-  text-field works!
-</p>
+<div class="form-group row">
+  <label [attr.for]="id" class="col-3 col-form-label">
+    {{ label }}
+  </label>
+  <div class="col">
+    <div class="input-group">
+      <div *ngIf="prefix" class="input-group-prepend">
+        <div class="input-group-text">{{ prefix }}</div>
+      </div>
+      <input type="number"
+             class="form-control"
+             [id]="id"
+             [(ngModel)]="inputValue"
+             (input)="onInput($event.target.value)"
+             required />
+      <div class="input-group-append">
+        <div *ngIf="suffix" class="input-group-text">{{ suffix }}</div>
+      </div>
+    </div>
+  </div>
+</div>

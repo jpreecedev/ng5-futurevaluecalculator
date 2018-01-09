@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment'; // Angular CLI environemnt
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { BasicDetailsComponent } from './basic-details/basic-details.component';
@@ -22,6 +23,7 @@ import * as reducers from './reducers/reducers';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 25 }) : []
   ],

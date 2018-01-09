@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-future-value-calculator',
-  templateUrl: './future-value-calculator.component.html',
-  styleUrls: ['./future-value-calculator.component.scss']
+  templateUrl: './future-value-calculator.component.html'
 })
-export class FutureValueCalculatorComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class FutureValueCalculatorComponent {
 
 }

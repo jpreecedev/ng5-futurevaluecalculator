@@ -1,3 +1,38 @@
-<p>
-  basic-details works!
-</p>
+<div class="row">
+  <div class="col">
+    <div class="card mb-3">
+      <div class="card-header" role="tab">
+        <h5 class="mb-0">
+          Your Property
+        </h5>
+      </div>
+      <div *ngIf="property"
+           class="card-body">
+        <app-text-field [type]="'number'"
+                        [id]="'pricePaid'"
+                        [label]="'Price Paid'"
+                        [prefix]="'£'"
+                        [suffix]="'.00'"
+                        [inputValue]="property.pricePaid"
+                        (changed)="priceChanged($event)">
+        </app-text-field>
+
+        <app-text-field [type]="'number'"
+                        [id]="'mortgageLength'"
+                        [label]="'Mortgage Length'"
+                        [suffix]="'years'"
+                        [inputValue]="property.mortgageLength"
+                        (changed)="mortgageLengthChanged($event)">
+        </app-text-field>
+
+        <app-text-field [type]="'number'"
+                        [id]="'expectedAnnualIncrease'"
+                        [label]="'Expected annual increase'"
+                        [suffix]="'%'"
+                        [inputValue]="property.expectedAnnualIncrease"
+                        (changed)="expectedAnnualIncreaseChanged($event)">
+        </app-text-field>
+      </div>
+    </div>
+  </div>
+</div>

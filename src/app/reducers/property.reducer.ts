@@ -1,4 +1,4 @@
-import { ActionReducer } from "@ngrx/store";
+import { ActionReducer, Action } from '@ngrx/store';
 import { Property } from '../models/property.model';
 import { getPropertyFutureValue } from '../utils';
 import { InvestmentActions } from '../actions/property.actions';
@@ -9,14 +9,18 @@ import {
   expectedAnnualIncreaseChangedAction
 } from '../actions/property.actions';
 
+interface PayloadAction extends Action {
+  payload: number;
+}
+
 const initialState: Property = {
   pricePaid: 120000,
   mortgageLength: 25,
   expectedAnnualIncrease: 5,
   futureValue: 0
-}
+};
 
-export const property : ActionReducer<Property> = (state : Property = initialState, action : any) => {
+export const property: ActionReducer<Property> = (state: Property = initialState, action: PayloadAction) => {
   switch (action.type) {
     case InvestmentActions.PRICE_PAID_CHANGED:
       state = Object.assign(state, {
@@ -39,4 +43,4 @@ export const property : ActionReducer<Property> = (state : Property = initialSta
 
   state.futureValue = getPropertyFutureValue(state);
   return state;
-}
+};
